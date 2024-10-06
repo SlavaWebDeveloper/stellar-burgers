@@ -54,7 +54,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html'
     }),
-    new Dotenv()
+    new Dotenv({ path: path.resolve(__dirname, '.env') })
   ],
   resolve: {
     extensions: [
@@ -77,8 +77,8 @@ module.exports = {
       '@ui-pages': path.resolve(__dirname, './src/components/ui/pages'),
       '@utils-types': path.resolve(__dirname, './src/utils/types'),
       '@api': path.resolve(__dirname, './src/utils/burger-api.ts'),
-      '@slices': path.resolve(__dirname, './src/services/slices'),
-      '@selectors': path.resolve(__dirname, './src/services/selectors')
+      '@slices': path.resolve(__dirname, 'src/services'),
+      '@store': path.resolve(__dirname, 'src/services/store.ts')
     }
   },
   output: {
