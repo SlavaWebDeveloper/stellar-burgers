@@ -21,8 +21,7 @@ import {
 } from '@components';
 
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useDispatch } from '@store';
+import { useDispatch, useSelector } from '@store';
 import {
   getIngredientsStateSelector,
   getIngredientsThunk,

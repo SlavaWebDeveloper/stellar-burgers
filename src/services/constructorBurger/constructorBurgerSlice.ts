@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TOrder } from '@utils-types';
 import { sendOrderThunk } from './actions';
 
@@ -32,16 +32,13 @@ const constructorSlice = createSlice({
       if (action.payload.type === 'bun') {
         state.constructorItems.bun = action.payload;
       } else {
-        state.constructorItems.ingredients.push({
-          ...action.payload,
-          id: nanoid()
-        });
+        state.constructorItems.ingredients.push(action.payload);
       }
     },
     removeIngredient: (state, action) => {
       state.constructorItems.ingredients =
         state.constructorItems.ingredients.filter(
-          (ingredient) => ingredient.id != action.payload
+          (ingredient) => ingredient.id !== action.payload
         );
     },
     setOrderRequest: (state, action) => {
